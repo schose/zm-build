@@ -1,0 +1,36 @@
+name: Build in Docker and Save Artifact for ubuntu 18.04
+
+on:
+  push:
+    branches:
+      - main  # Oder 'master', je nachdem, wie dein Hauptbranch heißt
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Start Docker Container
+      run: |
+        docker run --name my-container -d -t schose/zimbra-devcore-ubuntu-18.04:latest sleep infinity
+
+    - name: copy build
+      run: |
+        docker cp ./build.sh my-container:/tmp/build.sh
+        docker cp ./config.build my-container:/tmp/config.build
+
+    - name: Execute commands in Docker Container
+      run: |
+        docker exec my-container bash -c "pwd"
+        docker exec my-container bash -c "/tmp/build.sh"
+
+    - name: Copy file from Docker Container to Runner
+      run: docker cp my-container:/tmp/installer-build.tar.gz  ./installer-build.tar.gz
+
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: installer-build1804.tar.gz
+        path: installer-build.tar.gz
