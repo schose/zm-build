@@ -27,7 +27,6 @@ jobs:
         docker exec my-container bash -c "/tmp/build.sh"
         docker exec my-container bash -c "ls -alh"
         docker exec my-container bash -c "ls -alh /tmp"
-        docker exec my-container bash -c "ls -alh /build"
 
     - name: Copy file from Docker Container to Runner
       run: docker cp $(docker create --rm schose/zimbra-devcore-ubuntu-20.04:latest):/tmp/installer-build.tar.gz  ./installer-build.tar.gz
