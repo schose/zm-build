@@ -13,13 +13,13 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Start Docker Container
-        run: |
-          docker run --name my-container -d -t schose/zimbra-devcore-ubuntu-20.04:latest sleep infinity
+      run: |
+        docker run --name my-container -d -t schose/zimbra-devcore-ubuntu-20.04:latest sleep infinity
 
     - name: copy build
-        run: |
-          docker cp ./build.sh my-container:/tmp/build.sh
-          docker cp ./build.config my-container:/tmp/build.config
+      run: |
+        docker cp ./build.sh my-container:/tmp/build.sh
+        docker cp ./build.config my-container:/tmp/build.config
 
     - name: Execute commands in Docker Container
       run: |
