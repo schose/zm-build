@@ -14,6 +14,7 @@ jobs:
 
     - name: Start Docker Container
       run: |
+        cat /proc/cpuinfo
         docker run --name my-container -d -t schose/zimbra-devcore-ubuntu-20.04:latest sleep infinity
 
     - name: copy build
