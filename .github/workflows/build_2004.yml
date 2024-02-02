@@ -19,7 +19,7 @@ jobs:
     - name: copy build
       run: |
         docker cp ./build.sh my-container:/tmp/build.sh
-        docker cp ./build.config my-container:/tmp/build.config
+        docker cp ./config.build my-container:/tmp/config.build
 
     - name: Execute commands in Docker Container
       run: |
