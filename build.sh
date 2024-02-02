@@ -15,7 +15,8 @@ sudo ENV_CACHE_CLEAR_FLAG=true ./build.pl
 # sha256sum $CI_PROJECT_NAME.tar.gz > $CI_PROJECT_NAME.tar.gz.sha256
 # echo -n "sha256sum:" && cat $CI_PROJECT_NAME.tar.gz.sha256
 # cd /builds/andreas/zimbra_build/
+echo 'i am done'
 pwd
 ls -lah /tmp
-tar zcf /tmp/installer-build.tar.gz installer-build/BUILDS
+tar zcf /tmp/installer-build.tar.gz /home/build/installer-build/BUILDS
 ls -lah /tmp/installer-build.tar.gz
