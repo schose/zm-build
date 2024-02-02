@@ -1,4 +1,4 @@
-name: Build in Docker and Save Artifact for ubuntu 18.04
+name: Build zimbra ubuntu 18.04
 
 on:
   push:
