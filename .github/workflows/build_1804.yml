@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main  # Oder 'master', je nachdem, wie dein Hauptbranch heißt
+      - 10.0.7
 
 jobs:
   build:
