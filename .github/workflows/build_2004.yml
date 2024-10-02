@@ -12,6 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: linux release
+      run: lsb_release -a
+
     - name: Start Docker Container
       run: |
         docker run --name my-container -d -t schose/zimbra-devcore-ubuntu-20.04:latest sleep infinity
